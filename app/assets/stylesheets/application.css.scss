@@ -49,3 +49,10 @@ margin-top:5px;
 }
 /* body end */
 
+/* form */
+textarea{
+  @include min-width(500px);
+}
+/* form end */
+
+

@@ -1,0 +1,21 @@
+.page-header
+  展示
+
+%p#notice= notice
+
+%p
+  %b Name:
+  = @brand.name
+%p
+  %b Logo:
+  = @brand.logo
+%p
+  %b Summary:
+  = @brand.summary
+%p
+  %b Description:
+  = @brand.description
+
+= link_to '修改', edit_brand_path(@brand), :class => 'btn btn-mini btn-primary'
+\|
+= link_to '返回', brands_path, :class => 'btn btn-mini'

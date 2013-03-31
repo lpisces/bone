@@ -1,4 +1,10 @@
 Bone::Application.routes.draw do
+  resources :brands
+
+
+  resources :categories
+
+
   get "static_page/about"
 
   get "static_page/contact"

@@ -50,6 +50,8 @@ GEM
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
     daemons (1.1.9)
+    epiceditor-rails (0.1.0)
+      railties (>= 3.2, < 5.0)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (1.4.0)
@@ -142,6 +144,7 @@ DEPENDENCIES
   cells
   coffee-rails (~> 3.2.1)
   compass-rails
+  epiceditor-rails
   haml-rails
   jquery-rails
   rails (= 3.2.13)

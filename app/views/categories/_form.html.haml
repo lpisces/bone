@@ -1,0 +1,10 @@
+= simple_form_for(@category, :html => {:class => 'form-horizontal'}) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :parent_id
+    = f.input :is_parent
+
+  .form-actions
+    = f.button :submit, :value => '保存'

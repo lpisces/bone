@@ -1,0 +1,18 @@
+.page-header
+  展示
+
+%p#notice= notice
+
+%p
+  %b Name:
+  = @category.name
+%p
+  %b Parent:
+  = @category.parent_id
+%p
+  %b Is parent:
+  = @category.is_parent
+
+= link_to '修改', edit_category_path(@category), :class => 'btn btn-mini btn-primary'
+\|
+= link_to '返回', categories_path, :class => 'btn btn-mini'

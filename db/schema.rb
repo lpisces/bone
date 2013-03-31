@@ -11,6 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130331045616) do
+ActiveRecord::Schema.define(:version => 20130331075020) do
+
+  create_table "brands", :force => true do |t|
+    t.string   "name"
+    t.string   "logo"
+    t.text     "summary"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.boolean  "is_parent"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

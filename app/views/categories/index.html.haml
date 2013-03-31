@@ -1,0 +1,25 @@
+.page-header
+  %h4 categories列表
+
+%table.table.table-bordered.table-striped
+  %tr
+    %th Name
+    %th Parent
+    %th Is parent
+    %th
+
+  - @categories.each do |category|
+    %tr
+      %td= category.name
+      %td= category.parent_id
+      %td= category.is_parent
+      %td 
+        = link_to '展示', category, :class => 'btn btn-mini'
+        \|
+        = link_to '修改', edit_category_path(category), :class => 'btn btn-mini btn-primary'
+        \|
+        = link_to '删除', category, :method => :delete, :data => { :confirm => '你确定吗?' }, :class => 'btn btn-mini btn-danger'
+
+%br
+
+= link_to '新增 Category', new_category_path, :class => 'btn btn-mini btn-success'
