@@ -1,0 +1,6 @@
+.page-header
+  %h4 新增 <%= singular_table_name %>
+
+= render 'form'
+
+= link_to '返回', <%= index_helper %>_path, :class => 'btn btn-mini'

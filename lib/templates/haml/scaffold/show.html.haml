@@ -1,0 +1,14 @@
+.page-header
+  展示
+
+%p#notice= notice
+
+<% for attribute in attributes -%>
+%p
+  %b <%= attribute.human_name %>:
+  = @<%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+
+= link_to '修改', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn btn-mini btn-primary'
+\|
+= link_to '返回', <%= index_helper %>_path, :class => 'btn btn-mini'

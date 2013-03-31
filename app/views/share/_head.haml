@@ -1,0 +1,9 @@
+%meta{:'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8'}/
+%meta{:charset => 'utf-8'}
+%meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
+%meta{:name => 'keywords', :content => content_for?(:keywords) ? yield(:keywords) : ''}
+%meta{:name => 'description', :content => content_for?(:description) ? yield(:description) : ''}
+%meta{:name => 'author', :content => content_for?(:author) ? yield(:author) : ''}
+%title= content_for?(:title) ? yield(:title) : 'App' 
+= stylesheet_link_tag "application"
+%link{:href => 'http://fonts.googleapis.com/css?family=Keania+One', :rel => 'stylesheet', :type => 'text/css'}

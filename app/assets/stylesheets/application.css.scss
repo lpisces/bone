@@ -1,0 +1,51 @@
+$gridColumns: 25;
+$gridColumnWidth: 30px;
+$gridGutterWidth: 10px;
+$navbarHeight: 30px;
+@import "bootstrap";
+@import "compass/utilities/general/min";
+
+/* customize style start*/
+
+/* nav */
+
+#nav{
+margin-top:5px;
+}
+
+/* nav end */
+
+/* footer */
+
+#footer{
+  width:100%;
+  @include min-height(100px);
+  border-top:1px solid #eee;
+  margin-top:10px;
+  p{
+   float:right;
+   padding:5px 10px;
+  }
+  ul.links{
+   float:right;
+   li{
+     float:left;
+     list-style:none;
+     margin:0px;
+     padding:5px 10px;
+     a{
+       text-decoration:none;
+       font-size:12px;
+     }
+   }
+  }
+}
+
+/* footer end */
+
+/* body */
+#body{
+  @include min-height(800px);
+}
+/* body end */
+
