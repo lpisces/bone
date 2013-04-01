@@ -32,15 +32,8 @@ gem 'simple_form'
 gem 'rails_kindeditor', '~> 0.3.11'
 gem 'carrierwave'
 
-# captcha
-gem "galetahub-simple_captcha", :require => "simple_captcha"
-
-#pagination
-gem 'will_paginate', '~> 3.0'
-gem 'will_paginate-bootstrap'
-
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

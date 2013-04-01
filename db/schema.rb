@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401084806) do
+ActiveRecord::Schema.define(:version => 20130401015546) do
 
   create_table "brands", :force => true do |t|
     t.string   "name"
@@ -37,16 +37,6 @@ ActiveRecord::Schema.define(:version => 20130401084806) do
     t.string   "file_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "password_digest"
-    t.string   "email"
-    t.string   "remember_token"
-    t.boolean  "is_admin"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
   end
 
 end
