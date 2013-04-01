@@ -1,9 +1,10 @@
 Bone::Application.routes.draw do
-  resources :brands
 
+  match 'admin' => 'admin/dashboard#index'
 
-  resources :categories
-
+  namespace :admin do
+    resources :users, :brands, :categories
+  end
 
   get "static_page/about"
 
