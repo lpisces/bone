@@ -29,7 +29,6 @@ gem 'thin'
 gem 'haml-rails'
 gem 'cells'
 gem 'simple_form'
-gem 'epiceditor-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
