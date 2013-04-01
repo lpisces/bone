@@ -1,0 +1,48 @@
+.span24
+  %ul.breadcrumb
+    %li
+      %a{:href => '/'} 首页
+      %span.divider /
+    %li.active 注册
+
+.span24
+  .span18
+    = form_for @user, :url => {:controller => 'register', :action => 'create'}, :html => {:class => 'form-horizontal', :id => 'signup_form'} do |f|
+      .control-group
+        = f.label :name, :'用户名', :class => 'control-label'
+        .controls
+          = f.text_field :name, :value => @user.name
+          %span.help-inline
+            %small= @user.errors[:name].first
+          %span.help-block
+
+      .control-group
+        = f.label :email, :'Email', :class => 'control-label'
+        .controls
+          = f.text_field :email, :autocomplete => 'off', :value => @user.email
+          %span.help-inline
+            %small= @user.errors[:email].first
+          %span.help-block
+
+      .control-group
+        = f.label :password, :'密码', :class => 'control-label'
+        .controls
+          = f.password_field :password, :autocomplete => 'off', :value => ''
+          %span.help-inline
+            %small= @user.errors[:password_digest].first || @user.errors[:password].first
+          %span.help-block
+
+
+      .control-group
+        = f.label :password_confirmation, :'确认密码', :class => 'control-label'
+        .controls
+          = f.password_field :password_confirmation, :autocomplete => 'off', :value => ''
+          %span.help-inline
+            %small= @user.errors[:password_confirmation].first
+          %span.help-block
+
+
+      .control-group
+        .controls
+          %button.btn.btn-primary.btn-mini{:type => 'submit'} 注册
+          = link_to '已有账号？', signin_path, :class => 'btn btn-mini'

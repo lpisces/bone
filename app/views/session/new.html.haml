@@ -1,0 +1,32 @@
+.span24
+  %ul.breadcrumb
+    %li
+      %a{:href => '/'} 首页
+      %span.divider /
+    %li.active 登录
+
+
+.span24
+  .span18
+    = simple_form_for @user, :url => {:controller => 'session', :action => 'create'}, :html => {:class => 'form-horizontal'} do |f|
+      - unless flash[:error].nil?
+        .alert.alert-error
+          = flash[:error]
+        
+
+      = f.input :name, :label => '用户名', :input_html => {:autocomplete => 'off'}
+      = f.input :password, :label => '密码'
+
+      .control-group
+        .controls
+          %label.checkbox
+            %input{:class => 'checkbox', :type => 'checkbox', :name => 'remeber_me'} 
+            %span.help-inline 
+              %small 记住我
+
+      .control-group
+        .controls
+          %button.btn.btn-primary.btn-mini{:type => 'submit'} 登录
+          = link_to '没有账号？', signup_path, :class => 'btn btn-mini'
+
+

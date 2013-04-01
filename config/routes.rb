@@ -1,12 +1,17 @@
 Bone::Application.routes.draw do
+  root :to => 'dashboard#index'
+  
+  resources :users
   resources :brands
-
-
   resources :categories
 
+  match 'signin' => 'session#new'
+  match 'signout' => 'session#destroy'
+  match 'signup' => 'register#new'
+  match 'auth' => 'session#create'
+  match 'register/create' => 'register#create'
 
   get "static_page/about"
-
   get "static_page/contact"
 
   # The priority is based upon order of creation:

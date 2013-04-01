@@ -1,10 +1,36 @@
 .navbar
   .navbar-inner
-    %a.brand{:href => "#"} Title
+    %a.brand{:href => "/"} 75MS
     %ul.nav
-      %li.active
-        %a{:href => "#"} Home
-      %li
-        %a{:href => "#"} Link
-      %li
-        %a{:href => "#"} Link
+      - if self.controller_name.to_s == 'users'
+        %li.active
+          %a{:href => users_path} 用户
+      - else
+        %li
+          %a{:href => users_path} 用户
+
+      - if self.controller_name.to_s == 'brands'
+        %li.active
+          %a{:href => brands_path} 品牌
+      - else 
+        %li
+          %a{:href => brands_path} 品牌
+
+      - if self.controller_name.to_s == 'categories'
+        %li.active
+          %a{:href => categories_path} 类别
+      - else 
+        %li
+          %a{:href => categories_path} 类别
+
+    %ul.nav.pull-right
+      - if signed_in?
+        %li
+          %a{:href => '#'}= "<i class='icon-user'></i>#{current_user.name}".html_safe
+        %li
+          %a{:href => signout_path}= "<i class='icon-hand-right'></i><small>退出</small>".html_safe
+      - else 
+        %li
+          %a{:href => signin_path}= "<i class='icon-chevron-right'></i><small>登录</small>".html_safe 
+        %li
+          %a{:href => signup_path}= "<i class='icon-plus-sign'></i><small>注册</small>".html_safe

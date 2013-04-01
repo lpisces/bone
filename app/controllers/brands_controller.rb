@@ -1,4 +1,8 @@
 class BrandsController < ApplicationController
+  include SessionHelper
+  before_filter :require_signed_in
+  before_filter :require_admin
+
   # GET /brands
   # GET /brands.json
   def index

@@ -3,7 +3,7 @@
 
   .form-inputs
     = f.input :name, :label => '品牌名称'
-    = f.input :logo, :as => :image_preview
+    = f.input :logo, :as => :image_preview, :input_html => {:preview_version => :thumb}
     = f.input :logo_cache, :as => 'hidden'
     = f.input :summary, :label => '简介', :input_html => {:rows => 5}
     = f.input :description, :label => '详细介绍', :input_html => {:rows => 10}
