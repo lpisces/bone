@@ -30,6 +30,7 @@ gem 'haml-rails'
 gem 'cells'
 gem 'simple_form'
 gem 'rails_kindeditor', '~> 0.3.11'
+gem 'carrierwave'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
