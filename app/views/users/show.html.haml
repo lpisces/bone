@@ -3,15 +3,16 @@
 
 %p#notice= notice
 
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Is admin:
-  = @user.is_admin
+%table.table.table-bordered
+  %tr
+    %th 用户名
+    %td= @user.name
+  %tr
+    %th Email
+    %td= @user.email
+  %tr
+    %th 管理员
+    %td= @user.is_admin ? '是' : '否'
 
 = link_to '修改', edit_user_path(@user), :class => 'btn btn-mini btn-primary'
 \|

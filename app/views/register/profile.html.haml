@@ -1,0 +1,22 @@
+.page-header
+  账户信息
+- unless flash[:notice].nil?
+  .alert.alert-success
+    = flash[:notice]
+- unless flash[:error].nil?
+  .alert.alert-error
+    = flash[:error]
+
+%table.table.table-bordered
+  %tr
+    %th{:style => 'width:80px;'} 用户名
+    %td= current_user.name
+  %tr
+    %th Email
+    %td= current_user.email
+  - if admin?
+    %tr
+      %th 管理员
+      %td= current_user.is_admin ? '是' : '否'
+
+= link_to '修改', edit_profile_path, :class => 'btn btn-mini btn-primary'

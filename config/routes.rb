@@ -10,6 +10,9 @@ Bone::Application.routes.draw do
   match 'signup' => 'register#new'
   match 'auth' => 'session#create'
   match 'register/create' => 'register#create'
+  match 'profile' => 'register#profile'
+  match 'edit_profile' => 'register#edit_profile'
+  match 'update_profile' => 'register#update_profile'
 
   get "static_page/about"
   get "static_page/contact"
