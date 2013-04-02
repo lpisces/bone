@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+    @categories = Category.paginate(:page => params[:page]).order('id DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,6 +29,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new.json
   def new
     @category = Category.new
+    @top_categories = Category.where("parent_id = 0").all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,6 +40,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1/edit
   def edit
     @category = Category.find(params[:id])
+    @top_categories = Category.where("parent_id = 0").all
   end
 
   # POST /categories

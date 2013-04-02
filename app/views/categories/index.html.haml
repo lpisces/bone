@@ -1,25 +1,36 @@
 .page-header
-  %h4 categories列表
+  %h4 分类 列表
 
+= link_to '新增 分类', new_category_path, :class => 'btn btn-mini btn-success'
+
+%br/
+
+.pull-right= will_paginate @categories, :renderer => BootstrapPagination::Rails
 %table.table.table-bordered.table-striped
   %tr
-    %th Name
-    %th Parent
-    %th Is parent
+    %th 分类名称
+    %th 父分类
+    %th 是否父类
     %th
 
   - @categories.each do |category|
     %tr
       %td= category.name
-      %td= category.parent_id
-      %td= category.is_parent
+      %td
+        - if category.parent_id == 0
+          = '-'
+        - else
+          - c = Category.find_by_id(category.parent_id)
+          = c.name unless c.nil?
+      %td= category.is_parent ? '是' : '否'
       %td 
         = link_to '展示', category, :class => 'btn btn-mini'
         \|
         = link_to '修改', edit_category_path(category), :class => 'btn btn-mini btn-primary'
         \|
         = link_to '删除', category, :method => :delete, :data => { :confirm => '你确定吗?' }, :class => 'btn btn-mini btn-danger'
+.pull-right= will_paginate @categories, :renderer => BootstrapPagination::Rails
 
-%br
+%br/
 
-= link_to '新增 Category', new_category_path, :class => 'btn btn-mini btn-success'
+= link_to '新增 分类', new_category_path, :class => 'btn btn-mini btn-success'

@@ -1,18 +1,27 @@
 .page-header
-  展示
+  %h4 展示
 
 %p#notice= notice
 
-%p
-  %b Name:
-  = @category.name
-%p
-  %b Parent:
-  = @category.parent_id
-%p
-  %b Is parent:
-  = @category.is_parent
+%table.table.table-bordered
+  %tr
+    %th{:style => 'width:80px;'} 分类名
+    %td= @category.name
+  %tr
+    %th 父类
+    %td
+      - if @category.parent_id == 0
+        = '-'
+      - else
+        - c = Category.find_by_id(@category.parent_id)
+        = c.name unless c.nil?
+  %tr
+    %th 是否父类
+    %td= @category.is_parent ? '是' : '否'
+
 
 = link_to '修改', edit_category_path(@category), :class => 'btn btn-mini btn-primary'
 \|
 = link_to '返回', categories_path, :class => 'btn btn-mini'
+\|
+= link_to '新增 分类', new_category_path, :class => 'btn btn-mini btn-success'

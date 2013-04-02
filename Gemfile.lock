@@ -160,6 +160,7 @@ DEPENDENCIES
   compass-rails
   galetahub-simple_captcha
   haml-rails
+  i18n
   jquery-rails
   mini_magick
   rails (= 3.2.13)

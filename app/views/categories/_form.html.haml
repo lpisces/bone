@@ -2,9 +2,10 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :parent_id
-    = f.input :is_parent
+    = f.input :name, :label => '分类名称'
+    - o = Object.new ; def o.name; '-'; end; def o.id; 0; end;
+    = f.input :parent_id, :label => '父分类', :collection => @top_categories << o, :prompt => '请选择父类', :label_method => :name, :value_method => :id
+    = f.input :is_parent, :label => '是否父类'
 
   .form-actions
-    = f.button :submit, :value => '保存'
+    = f.button :submit, :value => '保存', :class => 'btn btn-success'
