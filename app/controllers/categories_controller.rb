@@ -5,8 +5,12 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
-    @categories = Category.paginate(:page => params[:page]).order('id DESC')
+    #@categories = Category.all
+    #@categories = Category.paginate(:page => params[:page]).order('id DESC')
+
+    @q = Category.search(params[:q])
+    @categories = @q.result(:distinct => true).paginate(:per_page => 15, :page => params[:page])
+    @top_categories = Category.top
 
     respond_to do |format|
       format.html # index.html.erb

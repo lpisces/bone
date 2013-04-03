@@ -1,16 +1,27 @@
 .page-header
   %h4 分类 列表
 
-= link_to '新增 分类', new_category_path, :class => 'btn btn-mini btn-success'
-
+.search{:style => 'border:1px solid #eee;padding:20px 5px 10px 5px;'}
+  = search_form_for @q, :builder => SimpleForm::FormBuilder, :html => {:class => 'form-horizontal'}, :url => categories_path do |f|
+    = f.input:name_cont
+    - o = Object.new ; def o.name; '-'; end; def o.id; 0; end;
+    = f.input :parent_id_eq, :label => '父分类', :collection => @top_categories << o, :prompt => '请选择父类', :label_method => :name, :value_method => :id
+    = f.input :group_eq, :label => '分组', :collection => 'A'.. 'F', :prompt => '请选择分类'
+    .form-actions
+      = f.submit :class => 'btn btn-success', :value => '查找'
+      %a.btn{:href => categories_path} 重置
 %br/
 
-.pull-right= will_paginate @categories, :renderer => BootstrapPagination::Rails
 %table.table.table-bordered.table-striped
   %tr
-    %th 分类名称
-    %th 父分类
-    %th 是否父类
+    %th
+      %small= sort_link @q, :name, '分类名称'
+    %th
+      %small= sort_link @q, :parent_id, '父名称'
+    %th 
+      %small= sort_link @q, :is_parent, '是否父类'
+    %th 
+      %small= sort_link @q, :group, '分组'
     %th
 
   - @categories.each do |category|
@@ -23,6 +34,7 @@
           - c = Category.find_by_id(category.parent_id)
           = c.name unless c.nil?
       %td= category.is_parent ? '是' : '否'
+      %td= category.group
       %td 
         = link_to '展示', category, :class => 'btn btn-mini'
         \|

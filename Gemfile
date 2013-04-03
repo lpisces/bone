@@ -44,6 +44,12 @@ gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 gem 'i18n'
+gem "ransack"
+
+group :development do
+  gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git'
+  gem 'listen'
+end
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
