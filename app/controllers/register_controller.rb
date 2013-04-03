@@ -25,6 +25,7 @@ class RegisterController < ApplicationController
 
   def update_profile
     @user = current_user
+    params[:user].delete 'is_admin'
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to profile_path, notice: '账户信息更新成功' }

@@ -1,20 +1,27 @@
 .page-header
-  %h4 brands列表
+  %h4 品牌 列表
 
 %table.table.table-bordered.table-striped
   %tr
-    %th Name
-    %th Logo
-    %th Summary
-    %th Description
+    %th{:style => 'width:80px;'} Logo
+    %th{:style => 'width:80px;'} 品牌名称
+    %th{:style => 'width:80px;'} 别名
+    %th{:style => 'width:80px;'} 分类
+    %th{:style => 'width:80px;'} 关键字
+    %th{:style => 'width:200px;'} 简介
     %th
 
   - @brands.each do |brand|
     %tr
+      %td
+        %img{:src => brand.logo.url}
       %td= brand.name
-      %td= brand.logo
-      %td= brand.summary
-      %td= brand.description
+      %td= brand.alias
+      %td 
+        - brand.categories.each do |c|
+          %a.pull_left{:href => category_path(c), :style => 'padding:0px 5px;'}= c.name
+      %td= brand.keywords
+      %td= brand.summary.html_safe
       %td 
         = link_to '展示', brand, :class => 'btn btn-mini'
         \|

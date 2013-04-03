@@ -47,8 +47,8 @@ gem 'i18n'
 gem "ransack"
 
 group :development do
-  gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git'
-  gem 'listen'
+  #gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git'
+  #gem 'listen'
 end
 
 # To use Jbuilder templates for JSON

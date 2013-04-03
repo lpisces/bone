@@ -4,6 +4,7 @@ $gridGutterWidth: 10px;
 $navbarHeight: 30px;
 @import "bootstrap";
 @import "compass/utilities/general/min";
+@import "compass/utilities/general/float";
 
 /* customize style start*/
 
@@ -52,6 +53,14 @@ margin-top:5px;
 /* form */
 textarea{
   @include min-width(500px);
+}
+.controls label.checkbox{
+  @include float(left);
+  display: bloak;
+  padding-top:5px;
+}
+
+.controls > .checkbox:first-child {
 }
 /* form end */
 

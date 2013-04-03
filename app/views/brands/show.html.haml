@@ -3,18 +3,21 @@
 
 %p#notice= notice
 
-%p
-  %b Name:
-  = @brand.name
-%p
-  %b Logo:
-  = @brand.logo
-%p
-  %b Summary:
-  = @brand.summary
-%p
-  %b Description:
-  = @brand.description
+%table.table.table-bordered
+  %tr
+    %th{:style => 'width:80px;'} 品牌名称
+    %td= @brand.name
+  %tr
+    %th Logo
+    %td
+      %img{:src => @brand.logo.thumb}
+  %tr
+    %th 简介
+    %td= @brand.summary.html_safe
+  %tr
+    %th 详细介绍
+    %td= @brand.description.html_safe
+
 
 = link_to '修改', edit_brand_path(@brand), :class => 'btn btn-mini btn-primary'
 \|
