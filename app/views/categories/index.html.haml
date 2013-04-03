@@ -3,7 +3,7 @@
 
 .search{:style => 'border:1px solid #eee;padding:20px 5px 10px 5px;'}
   = search_form_for @q, :builder => SimpleForm::FormBuilder, :html => {:class => 'form-horizontal'}, :url => categories_path do |f|
-    = f.input:name_cont
+    = f.input:name_cont, :label => '名称包含'
     - o = Object.new ; def o.name; '-'; end; def o.id; 0; end;
     = f.input :parent_id_eq, :label => '父分类', :collection => @top_categories << o, :prompt => '请选择父类', :label_method => :name, :value_method => :id
     = f.input :group_eq, :label => '分组', :collection => 'A'.. 'F', :prompt => '请选择分类'
@@ -17,7 +17,7 @@
     %th
       %small= sort_link @q, :name, '分类名称'
     %th
-      %small= sort_link @q, :parent_id, '父名称'
+      %small= sort_link @q, :parent_id, '父类名称'
     %th 
       %small= sort_link @q, :is_parent, '是否父类'
     %th 
