@@ -3,11 +3,13 @@
 
   .form-inputs
     = f.input :name, :label => '品牌名称'
+    = f.input :alias, :label => '别名'
+    = f.input :keywords, :label => '关键字', :input_html => {:size => 256, :class => 'input-xxlarge'}
     = f.input :logo, :as => :image_preview, :input_html => {:preview_version => :thumb}
     = f.input :logo_cache, :as => 'hidden'
     = f.input :summary, :label => '简介', :input_html => {:rows => 5}
     = f.input :description, :label => '详细介绍', :input_html => {:rows => 10}
-    = f.association :categories,  :as => :check_boxes
+    = f.association :categories,  :as => :check_boxes, :label => '分类'
 
   .form-actions
     = f.button :submit, :value => '保存'

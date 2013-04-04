@@ -2,7 +2,7 @@ require 'carrierwave/orm/activerecord'
 class Brand < ActiveRecord::Base
   include CarrierWave::MiniMagick
 
-  attr_accessible :description, :logo, :name, :summary, :logo_cache, :categories, :category_ids
+  attr_accessible :description, :logo, :name, :summary, :logo_cache, :categories, :category_ids, :alias, :keywords
 
   mount_uploader :logo, LogoUploader
 

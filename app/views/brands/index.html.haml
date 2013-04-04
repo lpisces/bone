@@ -7,8 +7,7 @@
     %th{:style => 'width:80px;'} 品牌名称
     %th{:style => 'width:80px;'} 别名
     %th{:style => 'width:80px;'} 分类
-    %th{:style => 'width:80px;'} 关键字
-    %th{:style => 'width:200px;'} 简介
+    %th{:style => 'width:300px;'} 关键字
     %th
 
   - @brands.each do |brand|
@@ -20,8 +19,8 @@
       %td 
         - brand.categories.each do |c|
           %a.pull_left{:href => category_path(c), :style => 'padding:0px 5px;'}= c.name
-      %td= brand.keywords
-      %td= brand.summary.html_safe
+      %td
+        %small=  brand.keywords
       %td 
         = link_to '展示', brand, :class => 'btn btn-mini'
         \|
@@ -31,4 +30,4 @@
 
 %br
 
-= link_to '新增 Brand', new_brand_path, :class => 'btn btn-mini btn-success'
+= link_to '新增 品牌', new_brand_path, :class => 'btn btn-mini btn-success'

@@ -17,8 +17,13 @@
   %tr
     %th 详细介绍
     %td= @brand.description.html_safe
+  %tr
+    %th 关键字
+    %td= @brand.keywords
 
 
 = link_to '修改', edit_brand_path(@brand), :class => 'btn btn-mini btn-primary'
 \|
 = link_to '返回', brands_path, :class => 'btn btn-mini'
+\|
+= link_to '新增 品牌', new_brand_path, :class => 'btn btn-mini btn-success'
