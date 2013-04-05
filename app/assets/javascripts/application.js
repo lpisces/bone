@@ -15,5 +15,3 @@
 //= require kindeditor
 //= require bootstrap
 //= require_tree .
-
-

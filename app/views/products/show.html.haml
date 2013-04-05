@@ -1,0 +1,33 @@
+.page-header
+  展示
+
+%p#notice= notice
+
+%p
+  %b Title:
+  = @product.title
+%p
+  %b Price:
+  = @product.price
+%p
+  %b Coupon price:
+  = @product.coupon_price
+%p
+  %b Pic url:
+  = @product.pic_url
+%p
+  %b Click url:
+  = @product.click_url
+%p
+  %b Shop click url:
+  = @product.shop_click_url
+%p
+  %b Detail:
+  = @product.detail
+%p
+  %b Volume:
+  = @product.volume
+
+= link_to '修改', edit_product_path(@product), :class => 'btn btn-mini btn-primary'
+\|
+= link_to '返回', products_path, :class => 'btn btn-mini'

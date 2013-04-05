@@ -4,10 +4,14 @@
 %table.table.table-bordered.table-striped
   %tr
     %th{:style => 'width:80px;'} Logo
-    %th{:style => 'width:80px;'} 品牌名称
-    %th{:style => 'width:80px;'} 别名
-    %th{:style => 'width:80px;'} 分类
-    %th{:style => 'width:300px;'} 关键字
+    %th{:style => 'width:80px;'}
+      =sort_link @q, :name, '品牌名称'
+    %th{:style => 'width:80px;'}
+      =sort_link @q, :alias, '别名'
+    %th{:style => 'width:80px;'}
+      =sort_link @q, :category_ids, '分类'
+    %th{:style => 'width:300px;'}
+      =sort_link @q, :keywords, '关键字'
     %th
 
   - @brands.each do |brand|
@@ -32,5 +36,6 @@
         = link_to '删除', brand, :method => :delete, :data => { :confirm => '你确定吗?' }, :class => 'btn btn-mini btn-danger'
 
 %br
+.pull-right= will_paginate @brands, :renderer => BootstrapPagination::Rails
 
 = link_to '新增 品牌', new_brand_path, :class => 'btn btn-mini btn-success'

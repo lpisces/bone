@@ -1,14 +1,27 @@
+.page-header
+  %h5 美食分类
 .groups{:style => 'margin-bottom:20px;padding:0 0 20px 0;height:230px;'}
   - @group.each do |g|
     .group{:style => 'width:310px;height:100px;border:1px solid #eee;float:left;margin:0px 10px 10px 0;padding:3px;'}
-      - eval("@parent_#{g}").each do |p|
-        %small= p.name
+      .parent
+        - eval("@parent_#{g}").each do |p|
+          %strong
+            %a{:href => '#'}= p.name
+      .children
+        - eval("@children_#{g}")[0..20].each do |p|
+          %small
+            %a{:href => '#'}= p.name
 .clearfix
 
 .page-header
-  %h5 巧克力
+  %h5
+    - eval("@parent_A").each do |p|
+      %strong
+        %a{:href => '#'}= p.name
+
 .item_groups{:style => 'height:350px;margin:10px 0;padding:10px 0;'}
-  .item{:style => 'width:230px;height:312px;border:1px solid #000;float:left;'}
+  .item{:style => 'width:230px;height:312px;float:left;'}
+    %a{"data-itemid" => "22074980066", "data-rd" => "1", "data-style" => "2", "data-tmpl" => "230x312", "data-type" => "0", :target => "_blank"}  淘点金_单品宝贝_直接展示230x312
   .item{:style => 'width:350px;height:100px;border:1px solid #000;float:left;margin:0 10px 10px 10px;'}
   .item{:style => 'width:350px;height:100px;border:1px solid #000;float:left;margin:0 10px 10px 10px;'}
   .item{:style => 'width:350px;height:100px;border:1px solid #000;float:left;margin:0 10px 10px 10px;'}

@@ -6,7 +6,9 @@ class BrandsController < ApplicationController
   # GET /brands
   # GET /brands.json
   def index
-    @brands = Brand.all
+    #@brands = Brand.all
+    @q = Brand.search(params[:q])
+    @brands = @q.result(:distinct => true).paginate(:per_page => 15, :page => params[:page]).order('id DESC')
 
     respond_to do |format|
       format.html # index.html.erb
