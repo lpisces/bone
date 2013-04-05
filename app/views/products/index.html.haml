@@ -3,26 +3,26 @@
 
 %table.table.table-bordered.table-striped
   %tr
-    %th Title
-    %th Price
-    %th Coupon price
-    %th Pic url
-    %th Click url
-    %th Shop click url
-    %th Detail
-    %th Volume
+    %th 图片
+    %th 标题
+    %th 价格
+    %th 优惠价格
+    %th 销量
     %th
 
   - @products.each do |product|
     %tr
-      %td= product.title
-      %td= product.price
-      %td= product.coupon_price
-      %td= product.pic_url
-      %td= product.click_url
-      %td= product.shop_click_url
-      %td= product.detail
-      %td= product.volume
+      %td
+        %img{:src => product.pic_url << '_100x100.jpg'}
+      %td
+        %small
+          %a{:href => product.click_url, :target => '_blank'}= product.title
+      %td
+        %small= product.price
+      %td
+        %small= product.coupon_price
+      %td
+        %small= product.volume
       %td 
         = link_to '展示', product, :class => 'btn btn-mini'
         \|
@@ -32,4 +32,5 @@
 
 %br
 
+.pull-right= will_paginate @products, :renderer => BootstrapPagination::Rails
 = link_to '新增 Product', new_product_path, :class => 'btn btn-mini btn-success'

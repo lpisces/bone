@@ -1,6 +1,6 @@
 .navbar
   .navbar-inner
-    %a.brand{:href => "/"} 75MS
+    %a.brand{:href => "/"}= App.site_name
     - if admin?
       %ul.nav
         - if self.controller_name.to_s == 'users'

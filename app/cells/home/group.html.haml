@@ -1,0 +1,35 @@
+.item_groups{:style => 'height:350px;margin:10px 0;padding:10px 0;'}
+  - p = @products[0]
+  .item{:style => 'width:230px;height:324px;float:left;position:relative;border:1px solid #eee;'}
+    %img{:src => p.pic_url << '_310x310.jpg', :style => 'width:228px;height:228px;'}
+    %p.title{:style => 'margin:10px 5px;'}
+      %small
+        %a{:href => p.click_url, :target => '_blank'}= p.title
+    %p.price{:style => 'position:absolute;left:5px;bottom:13px;'}
+      %strong{:style => 'color:red;'}= ("&yen;" << "%.2f" % p.price).html_safe
+    %p.coupon_price{:style => 'position:absolute;left:5px;bottom:-10px;'}
+      %span{:style => 'text-decoration:line-through;font-size:12px;'}= ("&yen;" << "%.2f" % p.coupon_price).html_safe
+    %p.buy{:style => 'position:absolute;bottom:-10px;right:10px;'}
+      %a{:href => '#',:style => 'font-size:18px;color:green;'}= "<i class='icon-shopping-cart'></i>".html_safe
+    %p.start{:style => 'position:absolute;bottom:-10px;right:30px;'}
+      %a{:href => '#',:style => 'font-size:18px;color:#CCCC00;'}= "<i class='icon-star-empty'></i>".html_safe
+    %p.start{:style => 'position:absolute;bottom:-10px;right:52px;'}
+      %a{:href => '#',:style => 'font-size:18px;color:#0088cc;'}= "<i class='icon-info-sign'></i>".html_safe
+
+  - @products[1..6].each do |p|
+    .item{:style => 'width:350px;height:100px;border:1px solid #eee;float:left;margin:0 10px 10px 10px;'}
+      %img.pull-left{:src => p.pic_url << '_100x100.jpg', :style => 'width:100px;height:100px;'}
+      .info.pull-left{:style => 'height:100px;width:248px;position:relative;'}
+        %p.title{:style => 'position:absolute;left:0px;top: 0px;margin:0 10px 0 10px;'}
+          %small
+            %a{:href => p.click_url, :target => '_blank'}= p.title
+        %p.price{:style => 'position:absolute;left:10px;bottom:20px;:margin:0 10px 0 0;'}
+          %strong{:style => 'color:red;'}= ("&yen;" << "%.2f" % p.price).html_safe
+        %p.coupon_price{:style => 'position:absolute;left:10px;bottom:0px;:margin:0 10px 0 0;'}
+          %span{:style => 'text-decoration:line-through;font-size:12px;'}= ("&yen;" << "%.2f" % p.coupon_price).html_safe
+        %p.buy{:style => 'position:absolute;bottom:0px;right:10px;'}
+          %a{:href => '#',:style => 'font-size:18px;color:green;'}= "<i class='icon-shopping-cart'></i>".html_safe
+        %p.start{:style => 'position:absolute;bottom:0px;right:30px;'}
+          %a{:href => '#',:style => 'font-size:18px;color:#CCCC00;'}= "<i class='icon-star-empty'></i>".html_safe
+        %p.start{:style => 'position:absolute;bottom:0px;right:52px;'}
+          %a{:href => '#',:style => 'font-size:18px;color:#0088cc;'}= "<i class='icon-info-sign'></i>".html_safe

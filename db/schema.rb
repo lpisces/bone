@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403092023) do
+ActiveRecord::Schema.define(:version => 20130405103737) do
 
   create_table "brands", :force => true do |t|
     t.string   "name"
@@ -38,6 +38,11 @@ ActiveRecord::Schema.define(:version => 20130403092023) do
     t.string   "group"
   end
 
+  create_table "categories_products", :force => true do |t|
+    t.integer "category_id"
+    t.integer "product_id"
+  end
+
   create_table "kindeditor_assets", :force => true do |t|
     t.string   "asset"
     t.string   "file_name"
@@ -46,6 +51,33 @@ ActiveRecord::Schema.define(:version => 20130403092023) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "products", :force => true do |t|
+    t.string   "title"
+    t.decimal  "price"
+    t.decimal  "coupon_price"
+    t.text     "pic_url"
+    t.text     "click_url"
+    t.text     "shop_click_url"
+    t.text     "json"
+    t.integer  "volume"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.text     "imgs"
+    t.datetime "coupon_start_time"
+    t.datetime "coupon_end_time"
+  end
+
+  create_table "settings", :force => true do |t|
+    t.string   "var",                      :null => false
+    t.text     "value"
+    t.integer  "thing_id"
+    t.string   "thing_type", :limit => 30
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "settings", ["thing_type", "thing_id", "var"], :name => "index_settings_on_thing_type_and_thing_id_and_var", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"

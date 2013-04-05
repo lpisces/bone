@@ -22,6 +22,8 @@
       %small= sort_link @q, :is_parent, '是否父类'
     %th 
       %small= sort_link @q, :group, '分组'
+    %th 
+      %small 商品数
     %th
 
   - @categories.each do |category|
@@ -35,6 +37,7 @@
           = c.name unless c.nil?
       %td= category.is_parent ? '是' : '否'
       %td= category.group
+      %td= category.products.size
       %td 
         = link_to '展示', category, :class => 'btn btn-mini'
         \|

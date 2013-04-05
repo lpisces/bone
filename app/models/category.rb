@@ -1,7 +1,8 @@
 class Category < ActiveRecord::Base
-  attr_accessible :is_parent, :name, :parent_id, :group, :brands, :brand_ids
+  attr_accessible :is_parent, :name, :parent_id, :group, :brands, :brand_ids, :products, :product_ids
 
   has_and_belongs_to_many :brands
+  has_and_belongs_to_many :products
 
   before_save do |c|
     sub = Category.where('parent_id = ?', c.id).all
@@ -12,5 +13,9 @@ class Category < ActiveRecord::Base
 
   def self.top
     Category.where("parent_id = 0 AND is_parent = ?", true).all
+  end
+
+  def keywords
+    self.name
   end
 end

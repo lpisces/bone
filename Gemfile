@@ -16,6 +16,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'bootstrap-sass', '~> 2.3.1.0'
+  gem 'font-awesome-sass-rails'
   gem 'compass-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -50,6 +51,7 @@ group :development do
   #gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git'
   #gem 'listen'
 end
+gem "rails-settings-cached", "0.2.4"
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
