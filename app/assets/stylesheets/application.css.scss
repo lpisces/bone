@@ -9,6 +9,16 @@ $navbarHeight: 30px;
 
 /* customize style start*/
 
+body{
+  background-image: url(/bg.png);
+  background-repeat:repeat;
+  background-color:#fff;
+}
+
+.breadcrumb{
+  background-color:#fff;
+}
+
 /* nav */
 
 #nav{

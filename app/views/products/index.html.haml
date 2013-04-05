@@ -1,13 +1,25 @@
 .page-header
   %h4 products列表
 
+.search{:style => 'border:1px solid #eee;padding:20px 5px 10px 5px;'}
+  = search_form_for @q, :builder => SimpleForm::FormBuilder, :html => {:class => 'form-horizontal'}, :url => products_path do |f|
+    = f.input:title_cont, :label => '标题包含'
+    - o = Object.new ; def o.name; '-'; end; def o.id; 0; end;
+    = f.input :categories_name_cont, :label => '分类', :collection => Category.top << o, :prompt => '请选择父类', :label_method => :name, :value_method => :name
+    .form-actions
+      = f.submit :class => 'btn btn-success btn-mini', :value => '查找'
+      %a.btn.btn-mini{:href => products_path} 重置
+%br/
+
+
 %table.table.table-bordered.table-striped
   %tr
-    %th 图片
-    %th 标题
-    %th 价格
-    %th 优惠价格
-    %th 销量
+    %th{:style => 'width:100px'} 图片
+    %th{:style => 'width:400px;'} 标题
+    %th= sort_link @q, :price, "价格"
+    %th= sort_link @q, :coupon_price, "优惠价格"
+    %th= sort_link @q, :volume, "销量"
+    %th= sort_link @q, :sort, "排序"
     %th
 
   - @products.each do |product|
@@ -18,11 +30,13 @@
         %small
           %a{:href => product.click_url, :target => '_blank'}= product.title
       %td
-        %small= product.price
+        %small= "%.2f" % product.price
       %td
-        %small= product.coupon_price
+        %small= "%.2f" % product.coupon_price
       %td
         %small= product.volume
+      %td
+        %small= product.sort
       %td 
         = link_to '展示', product, :class => 'btn btn-mini'
         \|

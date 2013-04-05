@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130405103737) do
+ActiveRecord::Schema.define(:version => 20130405164823) do
 
   create_table "brands", :force => true do |t|
     t.string   "name"
@@ -61,11 +61,12 @@ ActiveRecord::Schema.define(:version => 20130405103737) do
     t.text     "shop_click_url"
     t.text     "json"
     t.integer  "volume"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.text     "imgs"
     t.datetime "coupon_start_time"
     t.datetime "coupon_end_time"
+    t.integer  "sort",              :default => 0
   end
 
   create_table "settings", :force => true do |t|

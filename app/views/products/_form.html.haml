@@ -3,12 +3,13 @@
 
   .form-inputs
     = f.input :title
-    = f.input :price
-    = f.input :coupon_price
-    = f.input :pic_url
-    = f.input :click_url
-    = f.input :shop_click_url
-    = f.input :volume
+    /= f.input :price
+    /= f.input :coupon_price
+    /= f.input :pic_url
+    /= f.input :click_url
+    /= f.input :shop_click_url
+    /= f.input :volume
+    = f.input :sort
 
   .form-actions
     = f.button :submit, :value => '保存', :class => 'btn btn-success'

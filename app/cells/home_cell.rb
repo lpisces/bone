@@ -10,7 +10,7 @@ class HomeCell < Cell::Rails
     categories.each do |c|
       c.products.each do |p|
         @products << p if p.volume > 1000
-        break if @products.size > 10
+        break if @products.uniq.size > 10
       end
     end
     render

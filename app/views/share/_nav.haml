@@ -24,6 +24,13 @@
           %li
             %a{:href => categories_path} 类别
 
+        - if self.controller_name.to_s == 'products'
+          %li.active
+            %a{:href => products_path} 商品
+        - else 
+          %li
+            %a{:href => products_path} 商品
+
     %ul.nav.pull-right
       - if signed_in?
         %li
