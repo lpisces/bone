@@ -14,11 +14,14 @@
     %tr
       %td
         %img{:src => brand.logo.url}
-      %td= brand.name
-      %td= brand.alias
+      %td
+        %small= brand.name
+      %td
+        %small= brand.alias
       %td 
         - brand.categories.each do |c|
-          %a.pull_left{:href => category_path(c), :style => 'padding:0px 5px;'}= c.name
+          %small
+            %a.pull_left{:href => category_path(c), :style => 'padding:0px 5px;'}= c.name
       %td
         %small=  brand.keywords
       %td 

@@ -1,5 +1,5 @@
 Bone::Application.routes.draw do
-  root :to => 'dashboard#index'
+  root :to =>  "home#index"
   
   resources :users
   resources :brands
