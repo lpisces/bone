@@ -1,0 +1,28 @@
+.span25{:style => 'margin:0px;'}
+  %ul.breadcrumb{:style => 'margin:0px 0 10px 0px;'}
+    %li
+      %a{:href => '/'} 首页
+      %span.divider /
+    %li.active 分类导航
+
+%table.admin_category.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th{:style => 'width:200px;'}
+        %small 分类
+      %th
+        %small 子类
+  %tbody
+    - @categories.each do |c|
+      - next if c.parent_id != 0
+      %tr
+        %td{:style => 'width:200px;'}
+          %small
+            %a{:href => "/category/#{c.name}"}= c.name
+        %td
+          - sub = Category.where(:parent_id => c.id).all
+          %ul.inline
+            - sub.each do |s|
+              %li 
+                %small
+                  %a{:href => "/category/#{s.name}"}= s.name

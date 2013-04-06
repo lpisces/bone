@@ -8,7 +8,7 @@ class HomeCell < Cell::Rails
     categories = Category.where('`group` = ?', group).all
     @products = []
     categories.each do |c|
-      c.products.each do |p|
+      c.products(:order => "volume desc")[0..10].each do |p|
         @products << p
       end
     end

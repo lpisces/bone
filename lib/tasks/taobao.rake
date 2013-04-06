@@ -53,7 +53,13 @@ namespace :taobao do
     info['imgs'] = p['imgs'].join(',')
     product = m.where(:title => info['title']).first_or_create(info)
     product.update_attributes(info)
-    product.categories << category
+    product.categories << category if product.categories.index(category).nil?
+    if category.parent_id != 0
+      parent_category = Category.find_by_id(category.parent_id)
+      if !parent_category.nil?
+        product.categories << parent_category if product.categories.index(parent_category).nil?
+      end
+    end
     product.save!
   end
 

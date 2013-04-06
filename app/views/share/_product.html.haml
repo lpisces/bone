@@ -1,0 +1,18 @@
+%li{:style => 'width:230px;height:330px;margin:0 5px 10px 0px;padding:5px;display:block;'}
+  .item{:style => 'width:230px;height:324px;float:left;position:relative;border:1px solid #eee;margin:0 10px 0 0;background-color:#fff;'}
+    %img{:src => p.pic_url << '_310x310.jpg', :style => 'width:228px;height:228px;'}
+    %p.title{:style => 'margin:10px 5px;'}
+      %small
+        %a{:style => 'color:#666666;', :href => p.click_url, :target => '_blank'}= p.title
+    %p.volume
+      %small{:style => 'color:#666666;position:absolute;bottom:23px;right:5px;'}= "已卖出<strong style='color:red'>#{p.volume}</strong>件".html_safe
+    %p.price{:style => 'position:absolute;left:5px;bottom:13px;'}
+      %span{:style => 'text-decoration:line-through;font-size:12px;'}= ("&yen;" << "%.2f" % p.price).html_safe
+    %p.coupon_price{:style => 'position:absolute;left:5px;bottom:-10px;'}
+      %strong{:style => 'color:red;'}= ("&yen;" << "%.2f" % p.coupon_price).html_safe
+    %p.buy{:style => 'position:absolute;bottom:-10px;right:10px;'}
+      %a{:href => '#',:style => 'font-size:18px;color:green;'}= "<i class='icon-shopping-cart'></i>".html_safe
+    %p.start{:style => 'position:absolute;bottom:-10px;right:30px;'}
+      %a{:href => '#',:style => 'font-size:18px;color:#CCCC00;'}= "<i class='icon-star-empty'></i>".html_safe
+    %p.start{:style => 'position:absolute;bottom:-10px;right:52px;'}
+      %a{:href => '#',:style => 'font-size:18px;color:#0088cc;'}= "<i class='icon-info-sign'></i>".html_safe

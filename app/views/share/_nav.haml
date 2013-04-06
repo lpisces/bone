@@ -1,35 +1,42 @@
 .navbar
   .navbar-inner
     %a.brand{:href => "/"}= App.site_name
-    - if admin?
-      %ul.nav
+    %ul.nav
+      - if self.controller_name.to_s == 'category'
+        %li.active
+          %a{:href => category_map_path} 分类
+      - else
+        %li
+          %a{:href => category_map_path} 分类
+    %ul.nav
+      - if admin?
         - if self.controller_name.to_s == 'users'
           %li.active
-            %a{:href => users_path} 用户
+            %a{:href => users_path} 用户管理
         - else
           %li
-            %a{:href => users_path} 用户
-  
+            %a{:href => users_path} 用户管理
+    
         - if self.controller_name.to_s == 'brands'
           %li.active
-            %a{:href => brands_path} 品牌
+            %a{:href => brands_path} 品牌管理
         - else 
           %li
-            %a{:href => brands_path} 品牌
-  
+            %a{:href => brands_path} 品牌管理
+    
         - if self.controller_name.to_s == 'categories'
           %li.active
-            %a{:href => categories_path} 类别
+            %a{:href => categories_path} 类别管理
         - else 
           %li
-            %a{:href => categories_path} 类别
-
+            %a{:href => categories_path} 类别管理
+  
         - if self.controller_name.to_s == 'products'
           %li.active
-            %a{:href => products_path} 商品
+            %a{:href => products_path} 商品管理
         - else 
           %li
-            %a{:href => products_path} 商品
+            %a{:href => products_path} 商品管理
 
     %ul.nav.pull-right
       - if signed_in?

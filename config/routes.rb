@@ -1,12 +1,14 @@
 Bone::Application.routes.draw do
-  resources :products
-
+  get "category/map"
+  match "category/:name" => 'category#show'
 
   root :to =>  "home#index"
+
   
   resources :users
   resources :brands
   resources :categories
+  resources :products
 
   match 'signin' => 'session#new'
   match 'signout' => 'session#destroy'

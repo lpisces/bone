@@ -1,0 +1,38 @@
+.span25{:style => 'margin:0px;'}
+  %ul.breadcrumb{:style => 'margin:0px 0 0 0px;'}
+    %li
+      %a{:href => '/'} 首页
+      %span.divider /
+    %li
+      %a{:href => category_map_path} 分类
+      %span.divider /
+    - if @category.parent_id == 0
+      %li.active= @category.name
+    - else 
+      - parent = Category.find_by_id @category.parent_id
+      %li
+        %a{:href => "/category/#{parent.name}"}= parent.name
+        %span.divider /
+      %li.active= @category.name
+
+.span25{:style => 'margin:10px 0 0 0;'}
+  - if @category.parent_id == 0
+    - sub = Category.where(:parent_id => @category.id).all
+  - else
+    - sub = Category.where(:parent_id => @category.parent_id).all
+  - if sub.size > 0
+    .group{:style => 'background-color:#fff;width:970px;height:100px;border:1px solid #eee;float:left;margin:0px 10px 10px 0;padding:10px;'}
+      - sub.each do |s|
+        - if s.id == @category.id
+          %strong
+            %a.pull-left{:style => 'margin:0 10px 0 0;color:#666;', :href => "/category/#{s.name}"}= s.name
+        - else 
+          %small
+            %a.pull-left{:style => 'margin:0 10px 0 0;', :href => "/category/#{s.name}"}= s.name
+
+
+.span25{:style => 'margin:20px 0 0 0 ;'}
+  %ul.thumbnails{:style => 'margin:0px;'}
+    - @products.each do |p|
+      = render :partial => 'share/product', :locals => {:p => p}
+.pull-right= will_paginate @products, :renderer => BootstrapPagination::Rails

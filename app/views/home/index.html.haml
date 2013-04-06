@@ -1,17 +1,14 @@
-
-  
-
 .groups{:style => 'margin-bottom:20px;padding:0 0 0 0;height:230px;'}
   - @group.each do |g|
     .group{:style => 'background-color:#fff;width:295px;height:100px;border:1px solid #eee;float:left;margin:0px 10px 10px 0;padding:10px;'}
       .parent
         - eval("@parent_#{g}").each do |p|
           %strong
-            %a{:href => '#', :style => 'color:#666;'}= p.name
+            %a{:href => "/category/#{p.name}", :style => 'color:#666;'}= p.name
       .children{:style => 'margin:5px 0 0 0'}
         - eval("@children_#{g}")[0..14].each do |p|
           %small{:style => 'margin:0px 8px 0 0;'}
-            %a{:href => '#'}= p.name
+            %a{:href => "/category/#{p.name}"}= p.name
 .clearfix
 
 - ('A'..'F').each do |g|
@@ -19,6 +16,6 @@
     %h5
       - eval("@parent_#{g}").each do |p|
         %strong
-          %a{:href => '#'}= p.name
+          %a{:href => "/c/#{p.name}"}= p.name
   = render_cell :home, :group, g
 .clearfix

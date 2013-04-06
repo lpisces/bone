@@ -1,7 +1,10 @@
+# encoding : utf-8
 class CategoriesController < ApplicationController
   include SessionHelper
   before_filter :require_signed_in
   before_filter :require_admin
+
+
   # GET /categories
   # GET /categories.json
   def index
