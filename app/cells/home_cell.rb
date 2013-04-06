@@ -9,10 +9,11 @@ class HomeCell < Cell::Rails
     @products = []
     categories.each do |c|
       c.products.each do |p|
-        @products << p if p.volume > 1000
-        break if @products.uniq.size > 10
+        @products << p
       end
     end
+    @products.sort!{|x, y| y.sort <=> x.sort}
+    @products.sort!{|x, y| y.volume <=> x.volume} if @products.size > 0 && @products[0].sort  == 0
     render
   end
 

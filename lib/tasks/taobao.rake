@@ -84,7 +84,7 @@ namespace :taobao do
     params[:sort] = 'volume_desc'
     params[:app_key] = app_key
     params[:page_no] = 1
-    params[:page_size] = 100
+    params[:page_size] = 10
     params[:shop_type] = 'b'
     params[:sign] = sign(app_secret, params)
     params

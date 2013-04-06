@@ -12,7 +12,7 @@ class Category < ActiveRecord::Base
   end
 
   def self.top
-    Category.where("parent_id = 0 AND is_parent = ?", true).all
+    Category.where("parent_id = 0").all
   end
 
   def keywords
